@@ -4,6 +4,7 @@
 dmenu="rofi -dmenu -fuzzy "
 #dmenu="dmenu -nb '#1f1f1f' -nf '#dddddd' -sb '#1f1f1f' -sf '#ffffff' -fn 'xos4 Terminus:size=18' -l 32"
 
+# This fancy section mearly expands symlinks
 source="${BASH_SOURCE[0]}"
 while [ -h "$source" ]
 do
