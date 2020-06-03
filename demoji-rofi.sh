@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-dmenu="rofi -dmenu -fuzzy "
 #dmenu="dmenu -nb '#1f1f1f' -nf '#dddddd' -sb '#1f1f1f' -sf '#ffffff' -fn 'xos4 Terminus:size=18' -l 32"
 
 # This fancy section mearly expands symlinks
@@ -17,6 +16,10 @@ dir="$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )"
 # https://unicode.org/Public/emoji/"
 menufiles="$dir/*.menu.txt"
 
-char=$(cat $menufiles | eval $dmenu|awk '{print $1}')
+if [[ "$*" ]]
+then
+    char=$(echo "$*"|awk '{print $1}')
+    printf "${char}"|xclip -selection clipboard
+fi
 
-printf "${char}"|xclip -selection clipboard
+cat $menufiles
