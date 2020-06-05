@@ -16,10 +16,11 @@ dir="$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )"
 # https://unicode.org/Public/emoji/"
 menufiles="$dir/*.menu.txt"
 
-if [[ "$*" ]]
+if [ "$*" ]
 then
-    char=$(echo "$*"|awk '{print $1}')
-    printf "${char}"|xclip -selection clipboard
+    char=$(echo "$*" | awk '{print $1}')    
+    echo -n "$char" | xsel -b -i
+    exit 0
+else
+    cat $menufiles
 fi
-
-cat $menufiles
