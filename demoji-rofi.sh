@@ -14,7 +14,12 @@ done
 dir="$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )"
 
 # https://unicode.org/Public/emoji/"
-menufiles="$dir/*.menu.txt"
+
+sn=$(basename "$0")
+sn=${sn##*-}
+sn=${sn/.sh/}
+
+menufiles="${dir}/${sn}.menu.txt"
 
 if [ "$*" ]
 then
