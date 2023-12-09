@@ -9,12 +9,12 @@ it in active window.
 
 bash, xsel, xdotool
 
-## Rofi ##
+## Installation ##
 
-Drop repo somewhere.
+Clone repo somewhere.
 
 Symlink desired menus from your ~/bin/ or ~/.local/bin/ direcrories,
-or any directory from your path:
+or any other directory from your $PATH:
 
     cd ~/bin/
     ln -s ~/path/to/repo/demoji-rofi.sh demoji-unicode.sh
