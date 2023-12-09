@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xdotool_delay=1000
+xdotool_delay=16
 
 # Symlink expansion
 source="${BASH_SOURCE[0]}"
