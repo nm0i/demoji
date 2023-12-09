@@ -43,3 +43,7 @@ menu rendering.
 ## Screenshot ##
 
 ![screenshot](screenshot.png)
+
+## List sources ##
+
+[Emoji](https://unicode.org/Public/emoji/)
