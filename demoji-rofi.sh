@@ -1,9 +1,8 @@
 #!/bin/bash
 
+xdotool_delay=1000
 
-#dmenu="dmenu -nb '#1f1f1f' -nf '#dddddd' -sb '#1f1f1f' -sf '#ffffff' -fn 'xos4 Terminus:size=18' -l 32"
-
-# This fancy section mearly expands symlinks
+# Symlink expansion
 source="${BASH_SOURCE[0]}"
 while [ -h "$source" ]
 do
@@ -13,18 +12,17 @@ do
 done
 dir="$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )"
 
-# https://unicode.org/Public/emoji/"
+SCRIPT_NAME=$(basename "$0")
+SCRIPT_NAME=${SCRIPT_NAME##*-}
+SCRIPT_NAME=${SCRIPT_NAME/.sh/}
 
-sn=$(basename "$0")
-sn=${sn##*-}
-sn=${sn/.sh/}
-
-menufiles="${dir}/${sn}.menu.txt"
+menufiles="${dir}/${SCRIPT_NAME}.menu.txt"
 
 if [ "$*" ]
 then
-    char=$(echo "$*" | awk '{print $1}')    
-    echo -n "$char" | xsel -b -i
+    char=$(echo "$*" | awk '{print $1}')
+    printf '%s' "${char}" | xsel -b -i
+    printf '%s' "%{char}" | xdotool type --delay ${xdotool_delay} --clearmodifiers --file -
     exit 0
 else
     cat $menufiles
