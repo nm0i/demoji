@@ -13,7 +13,7 @@ bash, xsel, xdotool
 
 Clone repo somewhere.
 
-Symlink desired menus from your ~/bin/ or ~/.local/bin/ direcrories,
+Symlink desired menus to your ~/bin/ or ~/.local/bin/ direcrories,
 or any other directory from your $PATH:
 
     cd ~/bin/
