@@ -1,33 +1,39 @@
 # Demoji #
 
-Character picker for rofi.
+Character picker for rofi, dmenu.
 
 Script will push selected character into the clipboard and will type
 it in active window.
 
+## Screenshot ##
+
+![screenshot](screenshot.png)
+
 ## Requirements ##
 
-bash, xsel, xdotool
+rofi, bash, xsel, xdotool
 
 ## Installation ##
 
-Clone repo somewhere.
+1. Clone repo somewhere.
+2. Symlink script into your $PATH. 
+3. Bind it to a key in your wm or compositor.
+
+## Menu selection ##
+
+By default, script concatenates all *.menu.txt files in its run directory.
+
+You can select which menu you want or add your own menus by default
+renaming the script or choosing appropriate link name.
 
 Symlink desired menus to your ~/bin/ or ~/.local/bin/ direcrories,
 or any other directory from your $PATH:
 
     cd ~/bin/
-    ln -s ~/path/to/repo/demoji-rofi.sh demoji-unicode.sh
-    ln -s ~/path/to/repo/demoji-rofi.sh demoji-emoji.sh
+    ln -s ~/path/to/repo/demoji.sh demoji-unicode.sh
+    ln -s ~/path/to/repo/demoji.sh demoji-emoji.sh
     
 Symlink name will be used to figure out which menu you do want.    
-
-You can either call to modi script manually with or use demoji-rofi
-script in config:
-
-    rofi.modi:  run,ssh,emoji:~/bin/demoji-emoji.sh,utf:~/bin/demoji-unicode.sh
-
-Then you can switch to this modi with hotkey, `Ctrl+Tab` by default.
 
 Then bind desired calls to keys in your wm, compositor or keyboard manager.
 
@@ -39,10 +45,6 @@ menu rendering.
 ## See also ## 
 
 <https://github.com/Mange/rofi-emoji>
-
-## Screenshot ##
-
-![screenshot](screenshot.png)
 
 ## List sources ##
 
